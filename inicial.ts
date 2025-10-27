@@ -1,0 +1,1 @@
+console.log("Este é um primeiro arquivo para subir o repo no GitHub.");
