@@ -1,3 +1,40 @@
+# curso_git_github
+
+Repositório de prática de Git e GitHub. Os arquivos aqui (um HTML, CSS e alguns `.ts`) existem só para ter o que versionar: o histórico de commits é o exercício (`git status`, `add`, `commit`, `rm`, `mv`, `.gitignore`, branch e pull request). Este README é o guia de comandos que saiu desse estudo.
+
+## Onde cada comando mexe
+
+```mermaid
+flowchart LR
+  WD[Working directory<br/>seus arquivos] -- git add --> ST[Staging area]
+  ST -- git commit --> LR[(Repositório local<br/>.git)]
+  LR -- git push --> RR[(Remoto<br/>GitHub)]
+  RR -- git fetch --> LR
+  RR -- git pull = fetch + merge --> WD
+  LR -- "git switch / checkout" --> WD
+  ST -- "git restore --staged / git reset" --> WD
+```
+
+## O que foi praticado no histórico
+
+| Commit | Prática |
+| --- | --- |
+| `2e6efe2`, `fe245b2` | primeiro commit e `git add` de arquivos novos |
+| `97e8f56` | upload de arquivo pela interface do GitHub |
+| `800c21a`, `0e43983` | criar um arquivo vazio e removê-lo no commit seguinte |
+| `8b471bf`, `beaa6f5` | mover o `footer.css` para `css/` (o Git registra como rename) |
+| `91943e5` | `.gitignore` (ignora `.env` e `node_modules`) |
+| `3248c3a`, `dee0780` | classes TypeScript (`Pessoa` e `Emprego`) em `classe.ts` |
+| `b4f9adb` | merge do primeiro pull request (branch `improvement`, que trouxe este guia) |
+
+Veja com `git log --oneline --graph`.
+
+Arquivos de prática: `index.html` e `css/` (página de teste do `git status`), `inicial.ts` e `index.ts` (tipos de união), `classe.ts` (herança com `extends`/`super`). Não há build nem dependências; para rodar um `.ts` use `npx tsx classe.ts`.
+
+`clone/curso_git_github` é um clone do próprio repositório que foi commitado sem `.gitmodules`, então o Git o registra como um submódulo sem endereço e o GitHub mostra a pasta vazia. `git rm --cached clone/curso_git_github` remove esse registro se quiser limpar.
+
+---
+
 # Guia Completo de Comandos Git
 
 Um guia prático e direto dos comandos Git mais utilizados no dia a dia de desenvolvimento.
